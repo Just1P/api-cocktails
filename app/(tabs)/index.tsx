@@ -5,6 +5,7 @@ import {
   StyleSheet,
   Image,
   TouchableOpacity,
+  Alert,
 } from "react-native";
 import { useRouter } from "expo-router";
 import { useGetCocktails } from "@/hook/useGetCocktails";
@@ -14,6 +15,10 @@ export default function Home() {
   const cocktails = useGetCocktails();
   const ingredients = useGetIngredients();
   const router = useRouter();
+
+  const handleDisplayMessage = () => {
+    Alert.alert("Vous avez un nouveau message", "T ou ????");
+  };
 
   return (
     <View style={styles.container}>
@@ -51,6 +56,10 @@ export default function Home() {
           </View>
         )}
       />
+
+      <TouchableOpacity style={styles.button} onPress={handleDisplayMessage}>
+        <Text style={styles.buttonText}>Afficher un message</Text>
+      </TouchableOpacity>
     </View>
   );
 }
@@ -59,31 +68,31 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 20,
-    backgroundColor: "#1c1c1e", // Fond sombre pour un look élégant
+    backgroundColor: "#1c1c1e",
   },
   heading: {
     fontSize: 30,
     fontWeight: "bold",
     textAlign: "center",
-    color: "#d4af37", // Doré pour un style luxueux
+    color: "#d4af37",
     marginBottom: 10,
-    fontFamily: "Georgia", // Police élégante
-    textTransform: "uppercase", // Majuscules pour un effet distingué
-    letterSpacing: 2, // Espacement des lettres pour renforcer le style
+    fontFamily: "Georgia",
+    textTransform: "uppercase",
+    letterSpacing: 2,
   },
   subheading: {
     fontSize: 18,
     fontWeight: "400",
     textAlign: "center",
-    color: "#b0b0b0", // Gris clair pour contraster avec le fond sombre
+    color: "#b0b0b0",
     marginBottom: 20,
     fontFamily: "Georgia",
-    fontStyle: "italic", // Accentue l'élégance
+    fontStyle: "italic",
   },
   sectionTitle: {
     fontSize: 22,
     fontWeight: "600",
-    color: "#ffffff", // Blanc pur pour une lisibilité optimale
+    color: "#ffffff",
     marginBottom: 15,
     marginTop: 10,
     textTransform: "uppercase",
@@ -138,5 +147,18 @@ const styles = StyleSheet.create({
     color: "#d4af37",
     textAlign: "center",
     fontStyle: "italic",
+  },
+  button: {
+    backgroundColor: "#d4af37",
+    paddingVertical: 10,
+    paddingHorizontal: 20,
+    borderRadius: 8,
+    marginTop: 20,
+    alignItems: "center",
+  },
+  buttonText: {
+    color: "#fff",
+    fontSize: 16,
+    fontWeight: "600",
   },
 });
