@@ -11,7 +11,7 @@ import { useGetAllCocktails } from "@/hook/useGetAllCocktails";
 
 export default function Cocktails() {
   const router = useRouter();
-  const { cocktails, isLoading, error } = useGetAllCocktails();
+  const { cocktails } = useGetAllCocktails();
 
   return (
     <View style={styles.container}>
@@ -41,30 +41,45 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 20,
-    backgroundColor: "#f8f8f8",
+    backgroundColor: "#1b1b1d",
   },
   title: {
-    fontSize: 24,
-    fontWeight: "bold",
-    marginBottom: 10,
+    fontSize: 26,
+    fontWeight: "700",
+    marginBottom: 20,
     textAlign: "center",
+    color: "#d4af37",
+    textTransform: "uppercase",
+    letterSpacing: 2,
+    fontFamily: "Georgia",
   },
   card: {
     flexDirection: "row",
     alignItems: "center",
     marginBottom: 15,
-    padding: 10,
-    backgroundColor: "#fff",
-    borderRadius: 10,
+    padding: 12,
+    backgroundColor: "#2b2b2e",
+    borderRadius: 12,
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.3,
+    shadowRadius: 6,
+    elevation: 5,
+    borderWidth: 1,
+    borderColor: "#d4af37",
   },
   image: {
-    width: 80,
-    height: 80,
-    borderRadius: 40,
-    marginRight: 10,
+    width: 70,
+    height: 70,
+    borderRadius: 35,
+    marginRight: 15,
+    borderWidth: 2,
+    borderColor: "#d4af37",
   },
   text: {
-    fontSize: 18,
-    fontWeight: "bold",
+    fontSize: 20,
+    fontWeight: "600",
+    color: "#ffffff",
+    fontFamily: "Georgia",
   },
 });
